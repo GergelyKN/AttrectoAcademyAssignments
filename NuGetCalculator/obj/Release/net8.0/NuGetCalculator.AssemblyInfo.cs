@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyDescriptionAttribute("Egyszerű számológép könyvtár, amely alapvető matematikai műveleteket végez.")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5b041393da743f0cbcf01696a3c5ed3ff5dc6e07")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3881279df59529f2a4c93350f102364ab4b19f4c")]
 [assembly: System.Reflection.AssemblyProductAttribute("Calculator")]
 [assembly: System.Reflection.AssemblyTitleAttribute("NuGetCalculator")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

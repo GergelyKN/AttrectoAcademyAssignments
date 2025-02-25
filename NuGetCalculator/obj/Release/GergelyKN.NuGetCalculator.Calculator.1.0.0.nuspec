@@ -5,7 +5,7 @@
     <version>1.0.0</version>
     <authors>NuGetCalculator</authors>
     <description>Egyszerű számológép könyvtár, amely alapvető matematikai műveleteket végez.</description>
-    <repository type="git" commit="5b041393da743f0cbcf01696a3c5ed3ff5dc6e07" />
+    <repository type="git" commit="3881279df59529f2a4c93350f102364ab4b19f4c" />
     <dependencies>
       <group targetFramework="net8.0" />
     </dependencies>
