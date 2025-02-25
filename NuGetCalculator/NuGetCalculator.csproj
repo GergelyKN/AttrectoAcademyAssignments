@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <PackageId>GergelyKN.NuGetCalculator.Calculator</PackageId>
+    <Version>1.0.0</Version>
+    <Author>GergelyKN</Author>
+    <Product>Calculator</Product>
+    <Description>Egyszerű számológép könyvtár, amely alapvető matematikai műveleteket végez.</Description>
+
+  </PropertyGroup>
+
+</Project>
