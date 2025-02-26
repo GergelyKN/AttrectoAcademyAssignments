@@ -8,8 +8,18 @@
     <Version>1.0.0</Version>
     <Author>GergelyKN</Author>
     <Product>Calculator</Product>
-    <Description>Egyszerű számológép könyvtár, amely alapvető matematikai műveleteket végez.</Description>
+    <Description>Basic Calculator package for basic arithmetic operations.</Description>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageTags>calculator;math;arithmetic;nuget</PackageTags>
+    <PackageProjectUrl>https://github.com/GergelyKN/AttrectoAcademyAssignments/tree/main/NuGetCalculator</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/GergelyKN/AttrectoAcademyAssignments/tree/main/NuGetCalculator</RepositoryUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <Copyright>Copyright © 2024 GergelyKN. All rights reserved.</Copyright>
 
   </PropertyGroup>
+  
+  <ItemGroup>
+		<None Include="README.md" Pack="true" PackagePath="\"/>
+	</ItemGroup>
 
 </Project>
