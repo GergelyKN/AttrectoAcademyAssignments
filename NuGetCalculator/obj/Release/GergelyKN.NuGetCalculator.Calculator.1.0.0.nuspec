@@ -4,13 +4,20 @@
     <id>GergelyKN.NuGetCalculator.Calculator</id>
     <version>1.0.0</version>
     <authors>NuGetCalculator</authors>
-    <description>Egyszerű számológép könyvtár, amely alapvető matematikai műveleteket végez.</description>
-    <repository type="git" commit="3881279df59529f2a4c93350f102364ab4b19f4c" />
+    <license type="expression">MIT</license>
+    <licenseUrl>https://licenses.nuget.org/MIT</licenseUrl>
+    <readme>README.md</readme>
+    <projectUrl>https://github.com/GergelyKN/AttrectoAcademyAssignments/tree/main/NuGetCalculator</projectUrl>
+    <description>Basic Calculator package for basic arithmetic operations.</description>
+    <copyright>Copyright © 2024 GergelyKN. All rights reserved.</copyright>
+    <tags>calculator math arithmetic nuget</tags>
+    <repository type="git" url="https://github.com/GergelyKN/AttrectoAcademyAssignments/tree/main/NuGetCalculator" commit="6b8ecfbc57c8a77bd36739b29732044d30bd17f8" />
     <dependencies>
       <group targetFramework="net8.0" />
     </dependencies>
   </metadata>
   <files>
     <file src="C:\Users\Gergely\Desktop\Attrecto\Github_Szorgalmik\NuGetCalculator\bin\Release\net8.0\NuGetCalculator.dll" target="lib\net8.0\NuGetCalculator.dll" />
+    <file src="C:\Users\Gergely\Desktop\Attrecto\Github_Szorgalmik\NuGetCalculator\README.md" target="\README.md" />
   </files>
 </package>
