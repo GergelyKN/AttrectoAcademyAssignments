@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\Gergely\\Desktop\\Attrecto\\Github_Szorgalmik\\Homework\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Gergely\\Desktop\\Attrecto\\Github_Szorgalmik\\Homework\\Homework\\Migrations\\20250302134735_InitialMigration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Homework\\Migrations\\20250302134735_InitialMigration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F947E0E4-6176-4673-BC62-F1555C9B996E}|Homework\\Homework.csproj|c:\\users\\gergely\\desktop\\attrecto\\github_szorgalmik\\homework\\homework\\controllers\\coursecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F947E0E4-6176-4673-BC62-F1555C9B996E}|Homework\\Homework.csproj|solutionrelative:homework\\controllers\\coursecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{F947E0E4-6176-4673-BC62-F1555C9B996E}|Homework\\Homework.csproj|c:\\users\\gergely\\desktop\\attrecto\\github_szorgalmik\\homework\\homework\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F947E0E4-6176-4673-BC62-F1555C9B996E}|Homework\\Homework.csproj|solutionrelative:homework\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F947E0E4-6176-4673-BC62-F1555C9B996E}|Homework\\Homework.csproj|c:\\users\\gergely\\desktop\\attrecto\\github_szorgalmik\\homework\\homework\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F947E0E4-6176-4673-BC62-F1555C9B996E}|Homework\\Homework.csproj|solutionrelative:homework\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F947E0E4-6176-4673-BC62-F1555C9B996E}|Homework\\Homework.csproj|c:\\users\\gergely\\desktop\\attrecto\\github_szorgalmik\\homework\\homework\\data\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F947E0E4-6176-4673-BC62-F1555C9B996E}|Homework\\Homework.csproj|solutionrelative:homework\\data\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -27,40 +27,40 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "20250302134735_InitialMigration.cs",
-              "DocumentMoniker": "C:\\Users\\Gergely\\Desktop\\Attrecto\\Github_Szorgalmik\\Homework\\Homework\\Migrations\\20250302134735_InitialMigration.cs",
-              "RelativeDocumentMoniker": "Homework\\Migrations\\20250302134735_InitialMigration.cs",
-              "ToolTip": "C:\\Users\\Gergely\\Desktop\\Attrecto\\Github_Szorgalmik\\Homework\\Homework\\Migrations\\20250302134735_InitialMigration.cs",
-              "RelativeToolTip": "Homework\\Migrations\\20250302134735_InitialMigration.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-02T13:47:35.487Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
               "Title": "UsersController.cs",
               "DocumentMoniker": "C:\\Users\\Gergely\\Desktop\\Attrecto\\Github_Szorgalmik\\Homework\\Homework\\Controllers\\UsersController.cs",
               "RelativeDocumentMoniker": "Homework\\Controllers\\UsersController.cs",
               "ToolTip": "C:\\Users\\Gergely\\Desktop\\Attrecto\\Github_Szorgalmik\\Homework\\Homework\\Controllers\\UsersController.cs",
               "RelativeToolTip": "Homework\\Controllers\\UsersController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAACAAAAAAAAAAAAAgwCYAAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-02T13:42:28.9Z",
+              "WhenOpened": "2025-03-02T13:58:44.869Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "CourseController.cs",
-              "DocumentMoniker": "C:\\Users\\Gergely\\Desktop\\Attrecto\\Github_Szorgalmik\\Homework\\Homework\\Controllers\\CourseController.cs",
-              "RelativeDocumentMoniker": "Homework\\Controllers\\CourseController.cs",
-              "ToolTip": "C:\\Users\\Gergely\\Desktop\\Attrecto\\Github_Szorgalmik\\Homework\\Homework\\Controllers\\CourseController.cs",
-              "RelativeToolTip": "Homework\\Controllers\\CourseController.cs",
-              "ViewState": "AgIAAE0AAAAAAAAAAAAIwFMAAAAAAAAAAAAAAA==",
+              "Title": "UserRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Gergely\\Desktop\\Attrecto\\Github_Szorgalmik\\Homework\\Homework\\Repositories\\UserRepository.cs",
+              "RelativeDocumentMoniker": "Homework\\Repositories\\UserRepository.cs",
+              "ToolTip": "C:\\Users\\Gergely\\Desktop\\Attrecto\\Github_Szorgalmik\\Homework\\Homework\\Repositories\\UserRepository.cs",
+              "RelativeToolTip": "Homework\\Repositories\\UserRepository.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAYwBsAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-02T13:42:14.638Z",
+              "WhenOpened": "2025-03-02T13:57:32.155Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Users\\Gergely\\Desktop\\Attrecto\\Github_Szorgalmik\\Homework\\Homework\\Data\\User.cs",
+              "RelativeDocumentMoniker": "Homework\\Data\\User.cs",
+              "ToolTip": "C:\\Users\\Gergely\\Desktop\\Attrecto\\Github_Szorgalmik\\Homework\\Homework\\Data\\User.cs",
+              "RelativeToolTip": "Homework\\Data\\User.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAA1wBIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-02T13:54:30.408Z",
               "EditorCaption": ""
             }
           ]
