@@ -19,9 +19,9 @@ namespace Homework.Controllers
 
 
 		[HttpGet]
-		public IEnumerable<User> Get()
+		public IActionResult Get()
 		{
-			return _repository.GetAll();
+			return Ok(_repository.GetAll());
 		}
 
 
@@ -31,6 +31,13 @@ namespace Homework.Controllers
 			var user = _repository.GetById(id);
 			return user == null ? NotFound() : Ok(user);
 		}
+
+		[HttpGet("adults")]
+		public IActionResult GetAdultUsers()
+		{
+			return Ok(_repository.GetAdultUsers());
+		}
+
 
 
 		[HttpPost]

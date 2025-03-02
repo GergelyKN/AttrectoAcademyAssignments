@@ -25,6 +25,12 @@ namespace Homework.Repositories
 		}
 
 
+		public List<User> GetAdultUsers()
+		{
+			return _context.Users.Where(u => u.Age >= 18).ToList();
+		}
+
+
 		public void Create(User data)
 		{
 			_context.Users.Add(data);
