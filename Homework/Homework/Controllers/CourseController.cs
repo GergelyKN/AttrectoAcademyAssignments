@@ -1,4 +1,5 @@
 ﻿using Homework.Data;
+using Homework.Repositories;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -8,27 +9,27 @@ namespace Homework.Controllers
 	[ApiController]
 	public class CourseController : ControllerBase
 	{
-		public static List<Course> Courses = new List<Course>();
+		
+		private readonly CourseRepository _repository;
+
+		public CourseController()
+        {
+			_repository = new CourseRepository();
+        }
 
 
-		[HttpGet]
-		public IEnumerable<Course> Get()
+        [HttpGet]
+		public IActionResult Get()
 		{
-			return Courses;
+			return Ok(_repository.GetAll());
 		}
 
 
 		[HttpGet("{id}")]
 		public IActionResult Get(int id)
 		{
-			var course = Courses.FirstOrDefault(x => x.Id == id);
-
-			if (course != null)
-			{
-				return Ok(course);
-			}
-
-			return NotFound();
+			var course = _repository.GetById(id);
+			return course == null ? NotFound() : Ok(course);
 		}
 
 
@@ -40,8 +41,7 @@ namespace Homework.Controllers
 				return BadRequest(ModelState);
 			}
 
-			Courses.Add(course);
-
+			_repository.Create(course);
 			return CreatedAtAction(nameof(Get), new { id = course.Id }, course);
 		}
 
@@ -54,30 +54,16 @@ namespace Homework.Controllers
 				return BadRequest(ModelState);
 			}
 
-			var courseToUpdate = Courses.FirstOrDefault(x => x.Id == id);
-			if (courseToUpdate != null)
-			{
-				courseToUpdate.Description = course.Description;
-				courseToUpdate.Name = course.Name;
-
-				return Ok(courseToUpdate);
-			}
-
-			return NotFound();
+			var courseToUpdate = _repository.Update(id, course);
+			return courseToUpdate == null ? NotFound() : Ok(courseToUpdate);
 		}
 
 
 		[HttpDelete("{id}")]
 		public IActionResult Delete(int id)
 		{
-			var courseToDelete = Courses.FirstOrDefault(x => x.Id == id);
-			if (courseToDelete != null)
-			{
-				Courses.Remove(courseToDelete);
-				return NoContent();
-			}
-
-			return NotFound();
+			var result = _repository.Delete(id);
+			return result ? NoContent() : NotFound();
 		}
 	}
 }
