@@ -13,12 +13,12 @@ namespace Homework.Controllers
 		private readonly CourseRepository _repository;
 
 		public CourseController()
-        {
+		{
 			_repository = new CourseRepository();
-        }
+		}
 
 
-        [HttpGet]
+		[HttpGet]
 		public IActionResult Get()
 		{
 			return Ok(_repository.GetAll());

@@ -7,26 +7,30 @@ namespace Homework.Repositories
 		private readonly ApplicationDbContext _context;
 
 
-        public CourseRepository()
-        {
-            _context = new ApplicationDbContext();
+		public CourseRepository()
+		{
+			_context = new ApplicationDbContext();
 		}
+
 
 		public List<Course> GetAll()
 		{
 			return _context.Courses.ToList();
 		}
 
+
 		public Course? GetById(int id)
 		{
 			return _context.Courses.FirstOrDefault(c => c.Id == id);
 		}
+
 
 		public void Create(Course course)
 		{
 			_context.Courses.Add(course);
 			_context.SaveChanges();
 		}
+
 
 		public Course? Update(int id, Course updatedCourseData)
 		{
@@ -43,6 +47,7 @@ namespace Homework.Repositories
 			return null;
 		}
 
+
 		public bool Delete(int id)
 		{
 			var course = GetById(id);
@@ -53,7 +58,6 @@ namespace Homework.Repositories
 				return true;
 			}
 			return false;
-		}
-
-    }
+		}	
+	}
 }
