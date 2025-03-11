@@ -13,6 +13,7 @@ namespace Homework.Repositories
 			_context = context;
 		}
 
+
 		public List<Course> GetAll()
 		{
 			return _context.Courses.Include(c => c.Author).ToList();
@@ -31,6 +32,7 @@ namespace Homework.Repositories
 			_context.SaveChanges();
 		}
 
+
 		public Course? Update(int id, Course updatedCourseData)
 		{
 			var course = GetById(id);
@@ -47,6 +49,7 @@ namespace Homework.Repositories
 			return null;
 		}
 
+
 		public bool Delete(int id)
 		{
 			var course = GetById(id);
@@ -57,7 +60,5 @@ namespace Homework.Repositories
 				return true;
 			}
 			return false;
-		}
-
 	}
 }
