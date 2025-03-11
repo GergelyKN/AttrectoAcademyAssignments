@@ -10,12 +10,13 @@ namespace Homework.Controllers
 	public class CourseController : ControllerBase
 	{
 		
-		private readonly CourseRepository _repository;
+		private readonly ICourseRepository _repository;
 
-		public CourseController()
+		public CourseController(ICourseRepository repository)
 		{
-			_repository = new CourseRepository();
+    	_repository = repository;
 		}
+
 
 
 		[HttpGet]

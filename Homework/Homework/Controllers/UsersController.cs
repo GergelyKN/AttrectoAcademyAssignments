@@ -9,12 +9,12 @@ namespace Homework.Controllers
 	[ApiController]
 	public class UsersController : ControllerBase
 	{
-		private readonly UserRepository _repository;
+		private readonly IUserRepository _repository;
 
 
-		public UsersController()
+		public UsersController(IUserRepository repository)
 		{
-			_repository = new UserRepository();
+			_repository = repository;
 		}
 
 

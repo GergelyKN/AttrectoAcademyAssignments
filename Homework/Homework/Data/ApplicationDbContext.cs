@@ -4,17 +4,19 @@ namespace Homework.Data
 {
 	public class ApplicationDbContext : DbContext
 	{
-		private string DbPath;
 
-		public ApplicationDbContext()
+		public ApplicationDbContext(DbContextOptions options) : base(options)
 		{
-			var path = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
-			DbPath = Path.Join(path, "homework.db");
+
 		}
 
-		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
-			optionsBuilder.UseSqlite($"Data Source ={DbPath}");
+			modelBuilder.Entity<Course>()
+				.HasOne(c => c.Author)
+				.WithMany(u => u.Courses)
+				.HasForeignKey(c => c.UserId)
+				.OnDelete(DeleteBehavior.Cascade);
 		}
 
 		public DbSet<User> Users { get; set; }
