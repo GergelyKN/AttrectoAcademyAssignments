@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Homework.Data
 {
@@ -16,5 +17,11 @@ namespace Homework.Data
 		[Required]
 		[MaxLength(200)]
 		public string? Description { get; set; }
-	}
+
+
+        public int? UserId { get; set; }
+
+		[ForeignKey("UserId")]
+        public User? Author { get; set; }
+    }
 }
