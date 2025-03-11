@@ -1,33 +1,34 @@
 ﻿using Homework.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace Homework.Repositories
 {
-	public class UserRepository
+	public class UserRepository : IUserRepository
 	{
 		private readonly ApplicationDbContext _context;
 
 
-		public UserRepository()
+		public UserRepository(ApplicationDbContext context)
 		{
-			_context = new ApplicationDbContext();
+			_context = context;
 		}
 
 
 		public List<User> GetAll()
 		{
-			return _context.Users.ToList();
+			return _context.Users.Include(u => u.Courses).ToList();
 		}
 
 
 		public User? GetById(int id)
 		{
-			return _context.Users.FirstOrDefault(user => user.Id == id);
+			return _context.Users.Include(u => u.Courses).FirstOrDefault(user => user.Id == id);
 		}
 
 
 		public List<User> GetAdultUsers()
 		{
-			return _context.Users.Where(u => u.Age >= 18).ToList();
+			return _context.Users.Include(u => u.Courses).Where(u => u.Age >= 18).ToList();
 		}
 
 
@@ -45,8 +46,9 @@ namespace Homework.Repositories
 
 			if (user != null)
 			{
-				user.FirstName = data.FirstName;
-				user.LastName = data.LastName;
+				user.Name = data.Name;
+				user.Role = data.Role;
+				user.Courses = data.Courses;
 				_context.SaveChanges();
 
 				return user;
