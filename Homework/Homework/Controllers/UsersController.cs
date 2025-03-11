@@ -9,13 +9,14 @@ namespace Homework.Controllers
 	[ApiController]
 	public class UsersController : ControllerBase
 	{
-		private readonly IUserRepository _repository;
 
+		private readonly IUserRepository _repository;
 
 		public UsersController(IUserRepository repository)
 		{
 			_repository = repository;
 		}
+
 
 
 		[HttpGet]
@@ -32,12 +33,12 @@ namespace Homework.Controllers
 			return user == null ? NotFound() : Ok(user);
 		}
 
+
 		[HttpGet("adults")]
 		public IActionResult GetAdultUsers()
 		{
 			return Ok(_repository.GetAdultUsers());
 		}
-
 
 
 		[HttpPost]

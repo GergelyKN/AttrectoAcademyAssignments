@@ -14,7 +14,7 @@ namespace Homework.Controllers
 
 		public CourseController(ICourseRepository repository)
 		{
-    	_repository = repository;
+			_repository = repository;
 		}
 
 

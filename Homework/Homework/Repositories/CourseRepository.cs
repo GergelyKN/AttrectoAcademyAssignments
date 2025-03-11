@@ -5,13 +5,14 @@ namespace Homework.Repositories
 {
 	public class CourseRepository : ICourseRepository
 	{
-		private readonly ApplicationDbContext _context;
 
+		private readonly ApplicationDbContext _context;
 
 		public CourseRepository(ApplicationDbContext context)
 		{
 			_context = context;
 		}
+
 
 
 		public List<Course> GetAll()
@@ -60,5 +61,6 @@ namespace Homework.Repositories
 				return true;
 			}
 			return false;
+		}
 	}
 }
