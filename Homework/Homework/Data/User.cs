@@ -19,6 +19,9 @@ namespace Homework.Data
 		[Range(0, 125, ErrorMessage = "Age must be between 0 and 125!")]
 		public int Age { get; set; }
 
+		public required string Email { get; set; }
+		public required string Password { get; set; }
+
 		public List<Course>? Courses { get; set; } = [];
 	}
 }
