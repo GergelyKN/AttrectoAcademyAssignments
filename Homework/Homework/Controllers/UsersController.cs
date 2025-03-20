@@ -1,7 +1,11 @@
 ﻿using Homework.Data;
+using Homework.Dtos;
 using Homework.Repositories;
+using Homework.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace Homework.Controllers
 {
@@ -10,57 +14,76 @@ namespace Homework.Controllers
 	public class UsersController : ControllerBase
 	{
 
-		private readonly IUserRepository _repository;
+		private readonly IUserService _userService;
+		private readonly ITokenService _tokenService;
 
-		public UsersController(IUserRepository repository)
+		public UsersController(IUserService userService, ITokenService tokenService)
 		{
-			_repository = repository;
+			_userService = userService;
+			_tokenService = tokenService;
 		}
 
 
 
+		[Authorize]
 		[HttpGet]
-		public IActionResult Get()
+		public async Task<IEnumerable<UserDto>> GetAsync()
 		{
-			return Ok(_repository.GetAll());
+			return await _userService.GetAllAsync();
 		}
 
 
+		[Authorize]
 		[HttpGet("{id}")]
-		public IActionResult Get(int id)
+		public async Task<IActionResult> GetAsync(int id)
 		{
-			var user = _repository.GetById(id);
+			var user = await _userService.GetByIdAsync(id);
+			return user == null ? NotFound() : Ok(user);
+		}
+
+		[Authorize]
+		[HttpGet("me")]
+		public async Task<IActionResult> GetMeAsync()
+		{
+			var userId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier) ?? "0");
+
+			var user = await _userService.GetByIdAsync(userId);
 			return user == null ? NotFound() : Ok(user);
 		}
 
 
+
+		[Authorize]
 		[HttpGet("adults")]
-		public IActionResult GetAdultUsers()
+		public async Task<IEnumerable<UserDto>> GetAdultUsers()
 		{
-			return Ok(_repository.GetAdultUsers());
+			return await _userService.GetAdultUsersAsync();
 		}
 
 
+		[AllowAnonymous]
 		[HttpPost]
-		public IActionResult Post([FromBody] User data)
+		public async Task<IActionResult> PostAsync([FromBody] UserDto data)
 		{
-			_repository.Create(data);
+			await _userService.CreateAsync(data);
 			return NoContent();
 		}
 
 
+		[Authorize]
 		[HttpPut("{id}")]
-		public IActionResult Put(int id, [FromBody] User data)
+		public async Task<IActionResult> PutAsync(int id, [FromBody] UserDto data)
 		{
-			var user = _repository.Update(id, data);
+			var user = await _userService.UpdateAsync(id, data);
 			return user == null ? NotFound() : Ok(user);
 		}
 
 
+		[Authorize]
 		[HttpDelete("{id}")]
-		public IActionResult Delete(int id)
+		public async Task<IActionResult> DeleteAsync(int id)
 		{
-			var result = _repository.Delete(id);
+			var result = await _userService.DeleteAsync(id);
 			return result ? NoContent() : NotFound();
 		}
 	}

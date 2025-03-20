@@ -1,5 +1,8 @@
 ﻿using Homework.Data;
+using Homework.Dtos;
 using Homework.Repositories;
+using Homework.Services.CourseServices;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,60 +13,61 @@ namespace Homework.Controllers
 	public class CourseController : ControllerBase
 	{
 		
-		private readonly ICourseRepository _repository;
+		private readonly ICourseService _courseService;
 
-		public CourseController(ICourseRepository repository)
+		public CourseController(ICourseService courseService)
 		{
-			_repository = repository;
+			_courseService = courseService;
 		}
 
 
-
+		[Authorize]
 		[HttpGet]
-		public IActionResult Get()
+		public async Task<IEnumerable<CourseDto>> GetAsync()
 		{
-			return Ok(_repository.GetAll());
+			return await _courseService.GetAllAsync();
 		}
 
-
-		[HttpGet("{id}")]
-		public IActionResult Get(int id)
+		[Authorize]
+		[HttpGet("{id}", Name = "GetCourseAsync")]
+		public async Task<IActionResult> GetAsync(int id)
 		{
-			var course = _repository.GetById(id);
+			var course = await _courseService.GetByIdAsync(id);
 			return course == null ? NotFound() : Ok(course);
 		}
 
 
+		[Authorize]
 		[HttpPost]
-		public IActionResult Post([FromBody] Course course)
+		public async Task<IActionResult> PostAsync([FromBody] CourseDto courseDto)
 		{
 			if (!ModelState.IsValid)
 			{
 				return BadRequest(ModelState);
 			}
 
-			_repository.Create(course);
-			return CreatedAtAction(nameof(Get), new { id = course.Id }, course);
+			await _courseService.CreateAsync(courseDto);
+			return NoContent();
 		}
 
-
+		[Authorize]
 		[HttpPut("{id}")]
-		public IActionResult Put(int id, [FromBody] Course course)
+		public async Task<IActionResult> PutAsync(int id, [FromBody] CourseDto courseDto)
 		{
 			if (!ModelState.IsValid)
 			{
 				return BadRequest(ModelState);
 			}
 
-			var courseToUpdate = _repository.Update(id, course);
+			var courseToUpdate = await _courseService.UpdateAsync(id, courseDto);
 			return courseToUpdate == null ? NotFound() : Ok(courseToUpdate);
 		}
 
-
+		[Authorize]
 		[HttpDelete("{id}")]
-		public IActionResult Delete(int id)
+		public async Task<IActionResult> DeleteAsync(int id)
 		{
-			var result = _repository.Delete(id);
+			var result = await _courseService.DeleteAsync(id);
 			return result ? NoContent() : NotFound();
 		}
 	}

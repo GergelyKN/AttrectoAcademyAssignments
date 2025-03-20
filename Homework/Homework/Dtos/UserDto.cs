@@ -1,8 +1,13 @@
-﻿using System.ComponentModel.DataAnnotations;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Security.Cryptography;
+using System.Threading.Tasks;
 
-namespace Homework.Data
+namespace Homework.Dtos
 {
-	public class User
+	public class UserDto
 	{
 		[Key]
 		public int Id { get; set; }
@@ -19,9 +24,10 @@ namespace Homework.Data
 		[Range(0, 125, ErrorMessage = "Age must be between 0 and 125!")]
 		public int Age { get; set; }
 
+		[EmailAddress]
 		public required string Email { get; set; }
-		public required string Password { get; set; }
 
-		public List<Course>? Courses { get; set; } = [];
-	}
+		public required string Password { get; set; }
+        
+    }
 }
