@@ -13,10 +13,16 @@ namespace Homework.Data
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
 			modelBuilder.Entity<Course>()
-				.HasOne(c => c.Author)
+				.HasMany(c => c.Users)
 				.WithMany(u => u.Courses)
+				.UsingEntity(j => j.ToTable("CourseUser"));
+
+			modelBuilder.Entity<Course>()
+				.HasOne(c => c.Author)
+				.WithMany()
 				.HasForeignKey(c => c.UserId)
-				.OnDelete(DeleteBehavior.Cascade);
+				.OnDelete(DeleteBehavior.Restrict);
+
 		}
 
 		public DbSet<User> Users { get; set; }
