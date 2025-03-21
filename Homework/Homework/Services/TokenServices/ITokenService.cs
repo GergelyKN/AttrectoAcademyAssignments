@@ -10,6 +10,6 @@ namespace Homework.Services
 	public interface ITokenService
 	{
 		string CreateToken(User user);
-		int? GetUserIdFromToken(ClaimsPrincipal user);
+		int? GetUserIdFromToken();
 	}
 }

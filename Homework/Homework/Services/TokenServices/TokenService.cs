@@ -9,15 +9,19 @@ using Microsoft.Extensions.Options;
 using System.IdentityModel.Tokens.Jwt;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Binders;
 
 namespace Homework.Services
 {
 	public class TokenService : ITokenService
 	{
 		private readonly JwtOptions _jwtOptions;
-		public TokenService(IOptions<JwtOptions> options)
+		private readonly IHttpContextAccessor _httpContextAccessor;
+
+		public TokenService(IOptions<JwtOptions> options, IHttpContextAccessor httpContextAccessor)
 		{
 			_jwtOptions = options.Value;
+			_httpContextAccessor = httpContextAccessor;
 		}
 
 
@@ -45,10 +49,20 @@ namespace Homework.Services
 
 		}
 
-		public int? GetUserIdFromToken(ClaimsPrincipal user)
+		public int? GetUserIdFromToken()
 		{
-			var userIdClaim = user.Claims.FirstOrDefault(c => c.Type == JwtRegisteredClaimNames.Sub);
-			return userIdClaim != null ? int.Parse(userIdClaim.Value) : null;
+			
+			if(_httpContextAccessor.HttpContext is not null)
+			{
+				var userIdClaim = _httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier);
+				if(userIdClaim != null)
+				{
+					return int.Parse(userIdClaim.Value);
+				}
+
+			}
+
+			return null;
 		}
 
 	}
