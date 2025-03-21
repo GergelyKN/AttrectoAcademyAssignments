@@ -45,10 +45,14 @@ namespace Homework.Controllers
 		[HttpGet("me")]
 		public async Task<IActionResult> GetMeAsync()
 		{
-			var userId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier) ?? "0");
+			var userId = _tokenService.GetUserIdFromToken();
+			if (userId != null)
+			{
+				var user = await _userService.GetByIdAsync(userId.Value);
+				return Ok(user);
+			}
 
-			var user = await _userService.GetByIdAsync(userId);
-			return user == null ? NotFound() : Ok(user);
+			return NotFound();
 		}
 
 
