@@ -29,19 +29,16 @@ namespace Homework.Services.MapperService
 			Name = userDto.Name,
 			Email = userDto.Email,
 			Role = userDto.Role,
-			Age= userDto.Age,
+			Age = userDto.Age,
 			Password = userDto.Password
 		};
 
-		public Course MapToModelCourse(CourseDto courseDto)
+		public Course MapToModelCourse(CourseDto courseDto) => new()
 		{
-			return new Course
-			{
-				Id = courseDto.Id,
-				Author = MapToModelUser(courseDto.Author),
-				Description = courseDto.Description,
-				Name = courseDto.Name,
-			};
-		}
+			Id = courseDto.Id,
+			Author = MapToModelUser(courseDto.Author),
+			Description = courseDto.Description,
+			Name = courseDto.Name,
+		};
 	}
 }
