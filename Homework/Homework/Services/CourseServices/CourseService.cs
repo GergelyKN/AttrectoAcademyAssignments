@@ -12,7 +12,7 @@ namespace Homework.Services.CourseServices
 		private readonly IUserService _userService;
 
 		public CourseService(ICourseRepository courseRepository, IMapperService mapperService, IUserService userService)
-        {
+		{
 			_courseRepository = courseRepository;
 			_mapperService = mapperService;
 			_userService = userService;
