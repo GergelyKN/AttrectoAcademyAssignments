@@ -43,8 +43,13 @@ namespace Homework
 
 			builder.Services.AddScoped<IMapperService,MapperService>();
 
+			builder.Services.AddHttpContextAccessor();
+
 			builder.Services.AddDbContext<ApplicationDbContext>(options =>
 				options.UseSqlite(builder.Configuration.GetConnectionString("ApplicationDbContext")));
+
+			
+
 
 			builder.Services.AddSwaggerGen(c => {
 				c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
@@ -82,10 +87,11 @@ namespace Homework
 				opt.TokenValidationParameters = new()
 				{
 					ValidateIssuer = true,
-					ValidateAudience = false,
+					ValidateAudience = true,
 					ValidateLifetime = true,
 					ValidateIssuerSigningKey = true,
 					ValidIssuer = builder.Configuration["JwtOptions:Issuer"],
+					ValidAudience = builder.Configuration["JwtOptions:Issuer"],
 					IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["JwtOptions:Key"]!))
 				};
 			});
